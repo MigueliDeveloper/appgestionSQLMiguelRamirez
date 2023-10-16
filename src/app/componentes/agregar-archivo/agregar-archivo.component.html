@@ -1,0 +1,16 @@
+<!--- DEFINIER COMPONENTE DE FILE-->
+<div class="wrapper">
+  <div class="position-relative">
+      <h3>Subir imagen</h3>
+      <input class="input-file" (change)="capturarFile($event)" type="file">
+        
+      <div class="wrapper-button" >
+          <button type="button" class="button" [disabled]="loading" (click)="subirArchivo()">
+              {{(loading) ? 'Cargando.....' : 'Subir Archivo'}}
+          </button>
+      </div>
+
+  </div>
+ 
+</div>
+
