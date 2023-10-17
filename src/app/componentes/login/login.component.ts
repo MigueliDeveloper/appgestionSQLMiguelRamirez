@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: string = '';
+  username: string = '';
   password: string = '';
   loading: boolean = false;
 
@@ -27,14 +27,14 @@ export class LoginComponent implements OnInit {
   login() {
 
     // Validamos que el usuario ingrese datos
-    if (this.email == '' || this.password == '') {
+    if (this.username == '' || this.password == '') {
       this.toastr.error('Todos los campos son obligatorios', 'Error');
       return
     }
 
     // Creamos el body
     const user: User = {
-      email: this.email,
+      username: this.username,
       password: this.password
     }
 

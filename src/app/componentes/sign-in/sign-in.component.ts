@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  email: string = '';
+  username: string = '';
   password: string = '';
   confirmPassword: string = '';
   loading: boolean = false;
@@ -28,7 +28,7 @@ export class SignInComponent implements OnInit {
   addUser() {
 
     // Validamos que el usuario ingrese valores
-    if (this.email == '' || this.password == '' || this.confirmPassword == '') {
+    if (this.username == '' || this.password == '' || this.confirmPassword == '') {
       this.toastr.error('Todos los campos son obligatorios', 'Error');
       return;
     }
@@ -41,7 +41,7 @@ export class SignInComponent implements OnInit {
 
     // Creamos el objeto
     const user: User = {
-      email: this.email,
+      username: this.username,
       password: this.password
     }
 
@@ -49,7 +49,7 @@ export class SignInComponent implements OnInit {
     this._userService.signIn(user).subscribe({
       next: (v) => {
         this.loading = false;
-        this.toastr.success(`El usuario ${this.email} fue registrado con exito`, 'Usuario registrado');
+        this.toastr.success(`El usuario ${this.username} fue registrado con exito`, 'Usuario registrado');
         this.router.navigate(['/login']);
       },
       error: (e: HttpErrorResponse) => {
