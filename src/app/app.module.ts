@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 // Componentes
-import { HeaderComponent } from './header/header.component';
 import { ListarCursosComponent } from './componentes/listar-cursos/listar-cursos.component';
 import { CrearCursosComponent } from './componentes/crear-cursos/crear-cursos.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
@@ -27,7 +26,6 @@ import { AgregarArchivoComponent } from './componentes/agregar-archivo/agregar-a
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     ListarCursosComponent,
     CrearCursosComponent,
     HomeComponent,

@@ -13,13 +13,14 @@ import { LoginComponent } from './componentes/login/login.component';
 import { SignInComponent } from './componentes/sign-in/sign-in.component';
 import { AgregarArchivoComponent } from './componentes/agregar-archivo/agregar-archivo.component';
 
-import { AuthGuard } from './utils/auth.guard'
+import { AuthGuard } from './utils/auth.guard';
 
 const routes: Routes = [
 
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: SignInComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'agregarimagen', component: AgregarimagenComponent},
   {path: 'crearcurso', component: CrearCursosComponent},
