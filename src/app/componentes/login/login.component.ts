@@ -14,8 +14,8 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
-  loading: boolean = false;
-
+  // loading: boolean = false;
+  loading = false;
   constructor(private toastr: ToastrService,
     private _userService: UserService,
     private router: Router,

@@ -20,15 +20,51 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: SignInComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  {path: 'agregarimagen', component: AgregarimagenComponent},
-  {path: 'crearcurso', component: CrearCursosComponent},
-  {path: 'listarcursos', component: ListarCursosComponent},
-  {path: 'editarCurso/:id', component: CrearCursosComponent},
-  {path: 'contacto', component: ContactoComponent},
-  {path: 'verCurso/:id', component: CursoComponent},
-  {path: 'agregarArchivo', component: AgregarArchivoComponent},
+  {
+    path: 'home', 
+    component: HomeComponent,
+    children: [
+    {
+      path:'curso',
+      component: CursoComponent
+    },
+    {
+      path: 'verCurso/:id',
+      component: CursoComponent
+    },
+    {
+      path: 'crearcurso',
+      component: CrearCursosComponent
+    },
+   
+    {
+      path: 'editarCurso/:id',
+      component: CrearCursosComponent
+    },
+    {
+      path: 'listarcursos',
+      component: ListarCursosComponent
+    },
+    {
+      path: 'contacto',
+      component: ContactoComponent
+    },
+    {
+      path: 'agregarimagen',
+      component: AgregarimagenComponent
+    },
+    {
+      path: 'dashboard',
+      component: DashboardComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'agregar-archivo',
+      component: AgregarArchivoComponent
+    }
+    
+    ]
+  },
 
   {path: '**', redirectTo: '',pathMatch:'full'}
 ];
