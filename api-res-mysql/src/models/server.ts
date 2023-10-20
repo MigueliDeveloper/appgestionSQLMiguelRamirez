@@ -3,7 +3,8 @@ import cors from 'cors';
 import routesUser from '../routes/user';
 import { routerFile } from '../routes/storage'
 import { User } from './user';
-import  Archivo  from './storage'
+import  Archivo  from './storage';
+import {Curso} from './CursoModel';
 
 
 class Server {
@@ -27,7 +28,8 @@ class Server {
 
     routes() {
         this.app.use('/api/users', routesUser);
-        this.app.use('/api/upload', routerFile)
+        this.app.use('/api/upload', routerFile);
+        this.app.use('/api/curso');
     }
 
     midlewares() {

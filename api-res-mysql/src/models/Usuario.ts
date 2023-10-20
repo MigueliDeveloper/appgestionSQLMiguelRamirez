@@ -11,7 +11,7 @@ import {
     NonAttribute,
     Sequelize
   } from 'sequelize'
-  import type { Curso } from './Curso'
+  import type { Curso } from './CursoModel'
   
   type UsuarioAssociations = 'curso'
   

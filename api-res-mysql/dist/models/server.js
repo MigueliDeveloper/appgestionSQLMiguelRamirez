@@ -35,6 +35,7 @@ class Server {
     routes() {
         this.app.use('/api/users', user_1.default);
         this.app.use('/api/upload', storage_1.routerFile);
+        this.app.use('/api/curso');
     }
     midlewares() {
         // Parseo body
