@@ -2,12 +2,12 @@ import { Router } from 'express';
 import { deleteCurso, getCurso, getCursos, postCurso, updateCurso} from '../controllers/cursoController';
 
 
-const router = Router();
+const routerCurso = Router();
 
-router.get('/', getCurso);
-router.get('/:id', getCursos);
-router.delete('/:id', deleteCurso);
-router.post('/', postCurso);
-router.put('/:id', updateCurso);
+routerCurso.get('/', getCurso);
+routerCurso.get('/:id', getCursos);
+routerCurso.delete('/:id', deleteCurso);
+routerCurso.post('/', postCurso);
+routerCurso.put('/:id', updateCurso);
 
-export default router;
+export default routerCurso;

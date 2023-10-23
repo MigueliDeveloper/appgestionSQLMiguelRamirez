@@ -16,14 +16,20 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const user_1 = __importDefault(require("../routes/user"));
 const storage_1 = require("../routes/storage");
+const Curso_1 = __importDefault(require("../routes/Curso"));
+const TareaRoutes_1 = __importDefault(require("../routes/TareaRoutes"));
+const MensajeRoutes_1 = __importDefault(require("../routes/MensajeRoutes"));
 const user_2 = require("./user");
 const storage_2 = __importDefault(require("./storage"));
+const CursoModel_1 = require("./CursoModel");
+const TareaModel_1 = __importDefault(require("./TareaModel"));
+const MensajeModel_1 = __importDefault(require("./MensajeModel"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
         this.port = process.env.PORT || '3001';
         this.listen();
-        this.midlewares();
+        this.middlewares();
         this.routes();
         this.dbConnect();
     }
@@ -35,9 +41,11 @@ class Server {
     routes() {
         this.app.use('/api/users', user_1.default);
         this.app.use('/api/upload', storage_1.routerFile);
-        this.app.use('/api/curso');
+        this.app.use('/api/curso', Curso_1.default);
+        this.app.use('/api/tarea', TareaRoutes_1.default);
+        this.app.use('/api/mensaje', MensajeRoutes_1.default);
     }
-    midlewares() {
+    middlewares() {
         // Parseo body
         this.app.use(express_1.default.json());
         // Cors
@@ -46,6 +54,9 @@ class Server {
     dbConnect() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                yield CursoModel_1.Curso.sync();
+                yield TareaModel_1.default.sync();
+                yield MensajeModel_1.default.sync();
                 yield user_2.User.sync();
                 yield storage_2.default.sync();
             }

@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db/connection';
 
-const Tarea = sequelize.define('Tarea', {
+const Tarea = sequelize.define('tarea', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,

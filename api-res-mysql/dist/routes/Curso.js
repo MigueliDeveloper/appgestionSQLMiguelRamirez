@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const cursoController_1 = require("../controllers/cursoController");
-const router = (0, express_1.Router)();
-router.get('/', cursoController_1.getCurso);
-router.get('/:id', cursoController_1.getCursos);
-router.delete('/:id', cursoController_1.deleteCurso);
-router.post('/', cursoController_1.postCurso);
-router.put('/:id', cursoController_1.updateCurso);
-exports.default = router;
+const routerCurso = (0, express_1.Router)();
+routerCurso.get('/', cursoController_1.getCurso);
+routerCurso.get('/:id', cursoController_1.getCursos);
+routerCurso.delete('/:id', cursoController_1.deleteCurso);
+routerCurso.post('/', cursoController_1.postCurso);
+routerCurso.put('/:id', cursoController_1.updateCurso);
+exports.default = routerCurso;

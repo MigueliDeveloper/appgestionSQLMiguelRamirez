@@ -1,27 +1,9 @@
-import {
-    CreationOptional,
-    DataTypes,
-    InferCreationAttributes,
-    InferAttributes,
-    Model,
-    Sequelize
-} from 'sequelize'
+
+import { DataTypes } from 'sequelize';
+import sequelize from '../db/connection';
+
+  export const Curso = sequelize.define('cursos',{
   
-  export class Curso extends Model<
-    InferAttributes<Curso>,
-    InferCreationAttributes<Curso>
-  > {
-    declare id: CreationOptional<number>
-    declare nombre: string | null
-    declare temas: string | null
-    declare descripcion: string | null
-    declare categoria: string | null
-    declare duracion: string | null
-    declare createdAt: CreationOptional<Date>
-    declare updatedAt: CreationOptional<Date>
-    
-    static initModel(sequelize: Sequelize): typeof Curso {
-      Curso.init({
         id: {
           type: DataTypes.INTEGER,
           primaryKey: true,
@@ -49,10 +31,4 @@ import {
         updatedAt: {
           type: DataTypes.DATE
         }
-      }, {
-        sequelize
-      })
-      
-      return Curso
-    }
-  }
+      },)
