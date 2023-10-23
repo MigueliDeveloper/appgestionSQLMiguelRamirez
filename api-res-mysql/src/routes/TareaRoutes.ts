@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { deleteTarea, getTarea, getTareas, postTarea, updateTarea} from '../controllers/TareaController';
-import validateToken from '../services/validate-token';
+import validateToken from '../routes/validate-token';
 
 const router = Router();
 

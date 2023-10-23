@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const TareaController_1 = require("../controllers/TareaController");
-const validate_token_1 = __importDefault(require("../services/validate-token"));
+const validate_token_1 = __importDefault(require("../routes/validate-token"));
 const router = (0, express_1.Router)();
 router.get('/', validate_token_1.default, TareaController_1.getTareas);
 router.get('/:id', validate_token_1.default, TareaController_1.getTarea);

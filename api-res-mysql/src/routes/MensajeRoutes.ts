@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { deleteMensaje, getMensaje, getMensajes, postMensaje, updateMensaje} from '../controllers/MensajeController';
-import validateToken from '../services/validate-token';
+import validateToken from '../routes/validate-token';
 
 const router = Router();
 

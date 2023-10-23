@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { deleteAdminService, getAdminServices, getAdminService, postAdminService, updateAdminService } from '../controllers/AdminServiceController'
-import validateToken from '../services/validate-token';
+import validateToken from '../routes/validate-token';
 
 const router = Router();
 
