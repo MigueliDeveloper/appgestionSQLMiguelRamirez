@@ -2,7 +2,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db/connection';
 
-  export const Curso = sequelize.define('cursos',{
+  export const Curso = sequelize.define('curso',{
   
         id: {
           type: DataTypes.INTEGER,
@@ -32,3 +32,5 @@ import sequelize from '../db/connection';
           type: DataTypes.DATE
         }
       },)
+
+export default Curso;

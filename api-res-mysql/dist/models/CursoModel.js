@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Curso = void 0;
 const sequelize_1 = require("sequelize");
 const connection_1 = __importDefault(require("../db/connection"));
-exports.Curso = connection_1.default.define('cursos', {
+exports.Curso = connection_1.default.define('curso', {
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,

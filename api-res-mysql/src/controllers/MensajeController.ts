@@ -31,7 +31,7 @@ export const deleteMensaje = async (req: Request, res: Response) => {
     }else {
         await mensaje.destroy();
         res.json({
-            msg: 'El mensjae fue eliminado con exito.',
+            msg: 'El mensaje fue eliminado con exito.',
         })
     }
 }
@@ -56,8 +56,8 @@ export const postMensaje = async (req: Request, res: Response) => {
 }
 
 export const updateMensaje = async (req: Request, res: Response) =>{
-    const {body} = req;
-    const {id} = req.params;
+    const { body } = req;
+    const { id } = req.params;
     try{
         const mensaje = await Mensaje.findByPk(id);
 
@@ -75,7 +75,7 @@ export const updateMensaje = async (req: Request, res: Response) =>{
     } catch (error){
          console.log(error);
          res.json({
-            msg: 'Ha ocurrido un error'
+            msg: `Upps ocurrio un error, comuniquese con soporte`
          })
     }
 }

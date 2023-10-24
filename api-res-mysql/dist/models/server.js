@@ -41,9 +41,9 @@ class Server {
     routes() {
         this.app.use('/api/users', user_1.default);
         this.app.use('/api/upload', storage_1.routerFile);
-        this.app.use('/api/curso', Curso_1.default);
-        this.app.use('/api/tarea', TareaRoutes_1.default);
-        this.app.use('/api/mensaje', MensajeRoutes_1.default);
+        this.app.use('/api/cursos', Curso_1.default);
+        this.app.use('/api/tareas', TareaRoutes_1.default);
+        this.app.use('/api/mensajes', MensajeRoutes_1.default);
     }
     middlewares() {
         // Parseo body

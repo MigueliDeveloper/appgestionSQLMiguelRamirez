@@ -3,12 +3,12 @@ import Tarea from '../models/TareaModel';
 
 export const getTareas =  async (req: Request, res: Response) => {
     const listTareas  = await Tarea .findAll();
-    res.json(listTareas);
 
+    res.json(listTareas);
 }
 
 export const getTarea = async (req: Request, res: Response) => {
-    const {id} = req.params;
+    const { id } = req.params;
     const tarea = await Tarea.findByPk(id);
     if(tarea){
         res.json(tarea)
@@ -50,15 +50,15 @@ export const postTarea = async (req: Request, res: Response) => {
     }catch (error){
         console.log(error);
         res.json({
-            msg: 'Ha ocurrido un error'
+            msg: `Upps ocurrio un error, comuniquese con soporte`
         })
     }
 
 }
 
 export const updateTarea = async (req: Request, res: Response) =>{
-    const {body} = req;
-    const {id} = req.params;
+    const { body } = req;
+    const { id } = req.params;
     try{
         const tarea = await Tarea.findByPk(id);
 
@@ -76,7 +76,7 @@ export const updateTarea = async (req: Request, res: Response) =>{
     } catch (error){
          console.log(error);
          res.json({
-            msg: 'Ha ocurrido un error'
+            msg: `Upps ocurrio un error, comuniquese con soporte`
          })
     }
 }

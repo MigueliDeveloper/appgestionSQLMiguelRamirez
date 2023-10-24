@@ -46,10 +46,11 @@ export const postCurso = async (req: Request, res: Response) => {
     }
 }
 export const updateCurso = async (req: Request, res: Response) => {
-    const {body} = req;
-    const {id} = req.params;
+    const { body } = req;
+    const { id } = req.params;
     try{
         const curso = await Curso.findByPk(id);
+
         if(curso){
             await curso.update(body);
             res.json({
@@ -63,7 +64,7 @@ export const updateCurso = async (req: Request, res: Response) => {
     } catch (error){
         console.log(error);
         res.json({
-            msg: 'Ha ocurrido un error'
+            msg: `Upps ocurrio un error, comuniquese con soporte`
         })
     }
 }

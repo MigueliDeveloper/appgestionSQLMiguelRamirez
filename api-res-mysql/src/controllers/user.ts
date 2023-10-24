@@ -1,66 +1,56 @@
 import { Request, Response} from 'express';
-import bcrypt from 'bcrypt';
-import { User } from '../models/user';
-import jwt from 'jsonwebtoken';
+import { User } from '../models/user'; 
 
-export const newUser = async (req: Request, res: Response) => {
+export const getUsers = async (req: Request, res: Response) =>{
+    const listUsers = await User.findAll();
+    res.json(listUsers);
+}
 
-    const { username, password } = req.body;
-
-    // Validamos si el usuario ya existe en la base de datos
-    const user = await User.findOne({ where: { username: username } });
-
-    if(user) {
-       return res.status(400).json({
-            msg: `Ya existe un usuario con el nombre ${username}`
+export const getCurso = async (req: Request, res: Response) => {
+    const {id} = req.params;
+    const user = await User.findByPk(id);
+    if (user) {
+        res.json(user)
+    } else {
+        res.status(404).json({
+            msg: `No existe un curso con ese ${id}`
         })
-    } 
- 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    
-    try {
-        // Guardarmos usuario en la base de datos
-        await User.create({
-            username: username,
-            password: hashedPassword
-        })
-    
-        res.json({
-            msg: `Usuario ${username} creado exitosamente!`
-        })
-    } catch (error) {
-        res.status(400).json({
-            msg: 'Upps ocurrio un error',
-            error
+    }
+}
+export const deleteCurso = async (req: Request, res: Response) => {
+    const {id} = req.params;
+    const user = await User.findByPk(id);
+    if (!user) {
+        res.status(404).json({
+            msg: `No existe un curso con ese ${id}`
+        })   
+    } else {
+        await user.destroy();
+        res.json ({
+            msg: 'El curso fue eliminado con exito'
         })
     }
 }
 
-export const loginUser = async (req: Request, res: Response) => {
-
-    const { username, password } = req.body;
-
-   // Validamos si el usuario existe en la base de datos
-   const user: any = await User.findOne({ where: { username: username } });
-
-   if(!user) {
-        return res.status(400).json({
-            msg: `No existe un usuario con el nombre ${username} en la base datos`
+export const updateCurso = async (req: Request, res: Response) => {
+    const { body } = req;
+    const { id } = req.params;
+    try{
+        const user = await User.findByPk(id);
+        if(user){
+            await user.update(body);
+            res.json({
+                msg: 'El curso fue actualizado con exito'
+            })
+        } else {
+            res.status(404).json({
+                msg: `No existe un curso con ese ${id}`
+            })
+        }
+    } catch (error){
+        console.log(error);
+        res.json({
+            msg: 'Ha ocurrido un error'
         })
-   }
-
-   // Validamos password
-   const passwordValid = await bcrypt.compare(password, user.password)
-   if(!passwordValid) {
-    return res.status(400).json({
-        msg: `Password Incorrecta`
-    })
-   }
-
-   // Generamos token
-   const token = jwt.sign({
-    username: username
-   }, process.env.SECRET_KEY || 'pepito123');
-   
-   res.json(token);
+    }
 }

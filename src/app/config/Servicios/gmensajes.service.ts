@@ -8,7 +8,7 @@ import { GMensaje } from '../Modelos/GMensaje';
 })
 export class GmensajeService {
 
-  url= 'http://localhost:3700/api/mensajes/'
+  url= 'http://localhost:3001/api/mensajes/'
 
   constructor(private http: HttpClient) { }
 

@@ -13,20 +13,17 @@ const Tarea = sequelize.define('tarea', {
     descripcion: {
         type: DataTypes.STRING, 
     },
-    puntuacion: {
-        type: DataTypes.STRING,
-    },
     estado: {
         type: DataTypes.STRING,
     },
-    importancia: {
-        type: DataTypes.STRING,
-    },
+    nota: {
+        type: DataTypes.INTEGER
+    }
     
 }, {
 
-    createdAt: false,
-    updatedAt: false,
+    modelName: "tarea",
+    timestamps: false  
 
 });
 

@@ -33,9 +33,9 @@ class Server {
     routes() {
         this.app.use('/api/users', routesUser);
         this.app.use('/api/upload', routerFile);
-        this.app.use('/api/curso', routerCurso);
-        this.app.use('/api/tarea', routerTarea);
-        this.app.use('/api/mensaje', routerMensaje);
+        this.app.use('/api/cursos', routerCurso);
+        this.app.use('/api/tareas', routerTarea);
+        this.app.use('/api/mensajes', routerMensaje);
     }
 
     middlewares() {
