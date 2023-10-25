@@ -12,48 +12,48 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateTarea = exports.postTarea = exports.deleteTarea = exports.getTarea = exports.getTareas = void 0;
-const TareaModel_1 = __importDefault(require("../models/TareaModel"));
-const getTareas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const listTareas = yield TareaModel_1.default.findAll();
-    res.json(listTareas);
+exports.updatePost = exports.postPost = exports.deletePost = exports.getPost = exports.getPosts = void 0;
+const PostModel_1 = __importDefault(require("../models/PostModel"));
+const getPosts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const listPosts = yield PostModel_1.default.findAll();
+    res.json(listPosts);
 });
-exports.getTareas = getTareas;
-const getTarea = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getPosts = getPosts;
+const getPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const tarea = yield TareaModel_1.default.findByPk(id);
-    if (tarea) {
-        res.json(tarea);
+    const post = yield PostModel_1.default.findByPk(id);
+    if (post) {
+        res.json(post);
     }
     else {
         res.status(404).json({
-            msg: `No existe un tarea con ese ${id}`,
+            msg: `No existe un post con el id ${id}`
         });
     }
 });
-exports.getTarea = getTarea;
-const deleteTarea = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getPost = getPost;
+const deletePost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const tarea = yield TareaModel_1.default.findByPk(id);
-    if (!tarea) {
-        res.json(404).json({
-            msg: `No existe una tarea con ese ${id}`
+    const post = yield PostModel_1.default.findByPk(id);
+    if (!post) {
+        res.status(404).json({
+            msg: `No existe un post con el id ${id}`
         });
     }
     else {
-        yield tarea.destroy();
+        yield post.destroy();
         res.json({
-            msg: 'La tarea fue eliminada con exito.',
+            msg: 'El post fue eliminado con exito!'
         });
     }
 });
-exports.deleteTarea = deleteTarea;
-const postTarea = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.deletePost = deletePost;
+const postPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {
-        yield TareaModel_1.default.create(body);
+        yield PostModel_1.default.create(body);
         res.json({
-            msg: '¡La tarea fue agregado con exito!'
+            msg: `¡El post fue publicado con exito!`
         });
     }
     catch (error) {
@@ -63,21 +63,21 @@ const postTarea = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
 });
-exports.postTarea = postTarea;
-const updateTarea = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.postPost = postPost;
+const updatePost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     const { id } = req.params;
     try {
-        const tarea = yield TareaModel_1.default.findByPk(id);
-        if (tarea) {
-            yield tarea.update(body);
+        const post = yield PostModel_1.default.findByPk(id);
+        if (post) {
+            yield post.update(body);
             res.json({
-                msg: 'La tarea fue actualizado con exito'
+                msg: 'El post fue actualizado con exito'
             });
         }
         else {
             res.status(404).json({
-                msg: `No existe una tarea con ese ${id}`
+                msg: `No existe un post con el id ${id}`
             });
         }
     }
@@ -88,4 +88,4 @@ const updateTarea = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         });
     }
 });
-exports.updateTarea = updateTarea;
+exports.updatePost = updatePost;

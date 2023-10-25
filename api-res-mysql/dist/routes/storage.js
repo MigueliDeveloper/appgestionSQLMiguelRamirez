@@ -7,6 +7,8 @@ exports.routerFile = void 0;
 const express_1 = require("express");
 const storage_1 = require("../controllers/storage");
 const file_1 = __importDefault(require("../middleware/file"));
+// import  validateToken  from '../routes/validate-token'
+//import { checkJwt } from "../middleware/session";
 const routerFile = (0, express_1.Router)();
 exports.routerFile = routerFile;
 routerFile.post("/", file_1.default.single("myfile"), storage_1.getFile);

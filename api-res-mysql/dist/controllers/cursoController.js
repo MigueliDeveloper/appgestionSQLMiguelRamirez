@@ -81,7 +81,7 @@ const updateCurso = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     catch (error) {
         console.log(error);
         res.json({
-            msg: 'Ha ocurrido un error'
+            msg: `Upps ocurrio un error, comuniquese con soporte`
         });
     }
 });

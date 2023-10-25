@@ -19,11 +19,13 @@ const storage_1 = require("../routes/storage");
 const Curso_1 = __importDefault(require("../routes/Curso"));
 const TareaRoutes_1 = __importDefault(require("../routes/TareaRoutes"));
 const MensajeRoutes_1 = __importDefault(require("../routes/MensajeRoutes"));
+const PostRoutes_1 = __importDefault(require("../routes/PostRoutes"));
 const user_2 = require("./user");
 const storage_2 = __importDefault(require("./storage"));
 const CursoModel_1 = require("./CursoModel");
 const TareaModel_1 = __importDefault(require("./TareaModel"));
 const MensajeModel_1 = __importDefault(require("./MensajeModel"));
+const PostModel_1 = __importDefault(require("./PostModel"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -40,10 +42,11 @@ class Server {
     }
     routes() {
         this.app.use('/api/users', user_1.default);
-        this.app.use('/api/upload', storage_1.routerFile);
         this.app.use('/api/cursos', Curso_1.default);
-        this.app.use('/api/tareas', TareaRoutes_1.default);
         this.app.use('/api/mensajes', MensajeRoutes_1.default);
+        this.app.use('/api/posts', PostRoutes_1.default);
+        this.app.use('/api/tareas', TareaRoutes_1.default);
+        this.app.use('/api/upload', storage_1.routerFile);
     }
     middlewares() {
         // Parseo body
@@ -54,10 +57,11 @@ class Server {
     dbConnect() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield CursoModel_1.Curso.sync();
-                yield TareaModel_1.default.sync();
-                yield MensajeModel_1.default.sync();
                 yield user_2.User.sync();
+                yield CursoModel_1.Curso.sync();
+                yield MensajeModel_1.default.sync();
+                yield PostModel_1.default.sync();
+                yield TareaModel_1.default.sync();
                 yield storage_2.default.sync();
             }
             catch (error) {

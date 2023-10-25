@@ -43,7 +43,7 @@ const deleteMensaje = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     else {
         yield mensaje.destroy();
         res.json({
-            msg: 'El mensjae fue eliminado con exito.',
+            msg: 'El mensaje fue eliminado con exito.',
         });
     }
 });
@@ -84,7 +84,7 @@ const updateMensaje = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     catch (error) {
         console.log(error);
         res.json({
-            msg: 'Ha ocurrido un error'
+            msg: `Upps ocurrio un error, comuniquese con soporte`
         });
     }
 });

@@ -35,3 +35,4 @@ exports.Curso = connection_1.default.define('curso', {
         type: sequelize_1.DataTypes.DATE
     }
 });
+exports.default = exports.Curso;

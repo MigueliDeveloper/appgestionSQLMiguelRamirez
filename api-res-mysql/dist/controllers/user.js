@@ -8,62 +8,65 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginUser = exports.newUser = void 0;
-const bcrypt_1 = __importDefault(require("bcrypt"));
+exports.updateCurso = exports.deleteCurso = exports.getCurso = exports.getUsers = void 0;
 const user_1 = require("../models/user");
-const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { username, password } = req.body;
-    // Validamos si el usuario ya existe en la base de datos
-    const user = yield user_1.User.findOne({ where: { username: username } });
+const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const listUsers = yield user_1.User.findAll();
+    res.json(listUsers);
+});
+exports.getUsers = getUsers;
+const getCurso = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const user = yield user_1.User.findByPk(id);
     if (user) {
-        return res.status(400).json({
-            msg: `Ya existe un usuario con el nombre ${username}`
+        res.json(user);
+    }
+    else {
+        res.status(404).json({
+            msg: `No existe un curso con ese ${id}`
         });
     }
-    const hashedPassword = yield bcrypt_1.default.hash(password, 10);
-    try {
-        // Guardarmos usuario en la base de datos
-        yield user_1.User.create({
-            username: username,
-            password: hashedPassword
+});
+exports.getCurso = getCurso;
+const deleteCurso = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const user = yield user_1.User.findByPk(id);
+    if (!user) {
+        res.status(404).json({
+            msg: `No existe un curso con ese ${id}`
         });
+    }
+    else {
+        yield user.destroy();
         res.json({
-            msg: `Usuario ${username} creado exitosamente!`
+            msg: 'El curso fue eliminado con exito'
         });
+    }
+});
+exports.deleteCurso = deleteCurso;
+const updateCurso = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { body } = req;
+    const { id } = req.params;
+    try {
+        const user = yield user_1.User.findByPk(id);
+        if (user) {
+            yield user.update(body);
+            res.json({
+                msg: 'El curso fue actualizado con exito'
+            });
+        }
+        else {
+            res.status(404).json({
+                msg: `No existe un curso con ese ${id}`
+            });
+        }
     }
     catch (error) {
-        res.status(400).json({
-            msg: 'Upps ocurrio un error',
-            error
+        console.log(error);
+        res.json({
+            msg: 'Ha ocurrido un error'
         });
     }
 });
-exports.newUser = newUser;
-const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { username, password } = req.body;
-    // Validamos si el usuario existe en la base de datos
-    const user = yield user_1.User.findOne({ where: { username: username } });
-    if (!user) {
-        return res.status(400).json({
-            msg: `No existe un usuario con el nombre ${username} en la base datos`
-        });
-    }
-    // Validamos password
-    const passwordValid = yield bcrypt_1.default.compare(password, user.password);
-    if (!passwordValid) {
-        return res.status(400).json({
-            msg: `Password Incorrecta`
-        });
-    }
-    // Generamos token
-    const token = jsonwebtoken_1.default.sign({
-        username: username
-    }, process.env.SECRET_KEY || 'pepito123');
-    res.json(token);
-});
-exports.loginUser = loginUser;
+exports.updateCurso = updateCurso;
