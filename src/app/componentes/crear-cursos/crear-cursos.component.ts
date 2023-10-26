@@ -5,8 +5,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 // Servicio - Modelo
-import { GCurso } from '../../config/Modelos/gcurso';
-import { GcursoService } from '../../config/Servicios/gcurso.service';
+import { GCurso } from '../../Models/gcurso';
+import { GcursoService } from '../../services/gcurso.service';
 
 @Component({
   selector: 'app-crear-cursos',

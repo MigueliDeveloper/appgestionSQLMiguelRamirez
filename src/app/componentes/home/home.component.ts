@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { GcursoService } from '../../config/Servicios/gcurso.service';
-import { GCurso } from '../../config/Modelos/gcurso';
+import { GcursoService } from '../../services/gcurso.service';
+import { GCurso } from '../../Models/gcurso';
 
 @Component({
   selector: 'app-home',

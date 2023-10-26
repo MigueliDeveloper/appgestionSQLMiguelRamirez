@@ -3,8 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 import {ActivatedRoute, Router} from '@angular/router'
 import { ToastrService } from 'ngx-toastr'
 // Servicio - Modelo
-import { GMensaje  } from '../../config/Modelos/GMensaje'
-import { GmensajeService} from '../../config/Servicios/gmensajes.service'
+import { GMensaje  } from '../../Models/GMensaje'
+import { GmensajeService} from '../../services/gmensajes.service'
 
 @Component({
   selector: 'app-contacto',

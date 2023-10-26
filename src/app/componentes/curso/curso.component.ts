@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GcursoService } from '../../config/Servicios/gcurso.service';
-import { GCurso } from '../../config/Modelos/gcurso';
+import { GcursoService } from '../../services/gcurso.service';
+import { GCurso } from '../../Models/gcurso';
 
 @Component({
   selector: 'app-curso',
