@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body text-center">
                     <span class="titulo fs-2 mb-5">{{ titulo | uppercase }}</span>
-                    <form class="mb-3 mt-3" [formGroup]="contactoForm" (ngSubmit)="agregarUsuario()">
+                    <form class="mb-3 mt-3" novalidate (ngSubmit)="agregarMensaje()" [formGroup]="contactoForm">
                         <div class="mb-3">
                             <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
                             <div class="text-danger" *ngIf="contactoForm.get('nombre')?.hasError('required') && contactoForm.get('nombre')?.touched">

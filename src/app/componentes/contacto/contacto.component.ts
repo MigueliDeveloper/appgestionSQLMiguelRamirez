@@ -11,7 +11,7 @@ import { GmensajeService} from '../../config/Servicios/gmensajes.service'
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })
-export class ContactoComponent {
+export class ContactoComponent implements OnInit{
   contactoForm: FormGroup;
   titulo = 'Formulario de Contacto';
   id: string | null;
@@ -23,22 +23,20 @@ export class ContactoComponent {
     this.contactoForm = this.fb.group({
       nombre: ['', Validators.required],
       email: ['', Validators.required],
-      telefono: ['', Validators.required],
       asunto: ['', Validators.required],
-      textomensaje: ['', Validators.required]
+      mensaje: ['', Validators.required]
     })
     this.id = this.aRouter.snapshot.paramMap.get('id');
   }
   ngOnInit(): void {
     this.esEditar();
   }
-  agregarUsuario() {
+  agregarMensaje() {
     const MENSAJE: GMensaje  = {
       nombre: this.contactoForm.get('nombre')?.value,
       email: this.contactoForm.get('email')?.value,
-      telefono: this.contactoForm.get('telefono')?.value,
       asunto: this.contactoForm.get('asunto')?.value,
-      textomensaje: this.contactoForm.get('textomensaje')?.value
+      mensaje: this.contactoForm.get('textomensaje')?.value
     }
     if(this.id !== null){
       // Editamos Usuario

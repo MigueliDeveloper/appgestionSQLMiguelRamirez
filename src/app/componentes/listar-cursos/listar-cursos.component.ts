@@ -8,7 +8,7 @@ import { GCurso } from '../../config/Modelos/gcurso';
   templateUrl: './listar-cursos.component.html',
   styleUrls: ['./listar-cursos.component.css']
 })
-export class ListarCursosComponent {
+export class ListarCursosComponent implements OnInit{
   listCursos: GCurso[] = []
   
 
