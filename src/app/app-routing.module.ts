@@ -24,10 +24,10 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: SignInComponent},
-  {path: 'home', component: HomeComponent}, 
+  {path: 'home', component: HomeComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'contacto', component: ContactoComponent, canActivate: [AuthGuard]},
-  {path: 'archivo', component: AgregarArchivoComponent, canActivate: [AuthGuard]}
+  {path: 'archivo', component: AgregarArchivoComponent, canActivate: [AuthGuard]},
   {path: 'agregarimagen', component: AgregarimagenComponent, canActivate: [AuthGuard]},
   {path: 'crearcurso', component: CrearCursosComponent, canActivate: [AuthGuard]},
   {path: 'editarCurso/:id', component: CrearCursosComponent},
