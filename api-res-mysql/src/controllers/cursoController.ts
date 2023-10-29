@@ -6,7 +6,7 @@ import { Curso } from '../models/CursoModel';
 // Argumentos:
 // Ninguno
 // Valor de retorno:
-// Un array de objetos Curso 
+// Un array de objetos Curso
 
 
 export const getCursos = async (req: Request, res: Response) =>{
@@ -33,7 +33,7 @@ export const deleteCurso = async (req: Request, res: Response) => {
     if (!curso) {
         res.status(404).json({
             msg: `No existe un curso con ese ${id}`
-        })   
+        })
     } else {
         await curso.destroy();
         res.json ({
@@ -59,7 +59,7 @@ export const updateCurso = async (req: Request, res: Response) => {
     const { body } = req;
     const { id } = req.params;
     try{
-
+        // TODO:
         // Obtener un curso específico por su ID
         const curso = await Curso.findByPk(id);
 
