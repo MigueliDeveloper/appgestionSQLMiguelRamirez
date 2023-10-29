@@ -1,6 +1,14 @@
 import {Request, Response} from 'express';
 import { Curso } from '../models/CursoModel';
 
+// TODO: Método: GET
+// Propósito: Obtener todos los cursos de la base de datos.
+// Argumentos:
+// Ninguno
+// Valor de retorno:
+// Un array de objetos Curso 
+
+
 export const getCursos = async (req: Request, res: Response) =>{
     const listCursos = await Curso.findAll();
     res.json(listCursos);
@@ -8,6 +16,8 @@ export const getCursos = async (req: Request, res: Response) =>{
 
 export const getCurso = async (req: Request, res: Response) => {
     const {id} = req.params;
+
+    // TODO: Obtener todos los cursos
     const curso = await Curso.findByPk(id);
     if (curso) {
         res.json(curso)
@@ -49,6 +59,8 @@ export const updateCurso = async (req: Request, res: Response) => {
     const { body } = req;
     const { id } = req.params;
     try{
+
+        // Obtener un curso específico por su ID
         const curso = await Curso.findByPk(id);
 
         if(curso){

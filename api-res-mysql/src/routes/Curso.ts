@@ -4,8 +4,8 @@ import { deleteCurso, getCurso, getCursos, postCurso, updateCurso} from '../cont
 
 const routerCurso = Router();
 
-routerCurso.get('/', getCurso);
-routerCurso.get('/:id', getCursos);
+routerCurso.get('/:id', getCurso);
+routerCurso.get('/', getCursos);
 routerCurso.delete('/:id', deleteCurso);
 routerCurso.post('/', postCurso);
 routerCurso.put('/:id', updateCurso);

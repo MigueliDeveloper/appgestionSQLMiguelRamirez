@@ -11,6 +11,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateCurso = exports.postCurso = exports.deleteCurso = exports.getCurso = exports.getCursos = void 0;
 const CursoModel_1 = require("../models/CursoModel");
+// TODO: Método: GET
+// Propósito: Obtener todos los cursos de la base de datos.
+// Argumentos:
+// Ninguno
+// Valor de retorno:
+// Un array de objetos Curso 
 const getCursos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const listCursos = yield CursoModel_1.Curso.findAll();
     res.json(listCursos);
@@ -18,6 +24,7 @@ const getCursos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.getCursos = getCursos;
 const getCurso = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
+    // TODO: Obtener todos los cursos
     const curso = yield CursoModel_1.Curso.findByPk(id);
     if (curso) {
         res.json(curso);
@@ -65,6 +72,7 @@ const updateCurso = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     const { body } = req;
     const { id } = req.params;
     try {
+        // Obtener un curso específico por su ID
         const curso = yield CursoModel_1.Curso.findByPk(id);
         if (curso) {
             yield curso.update(body);
