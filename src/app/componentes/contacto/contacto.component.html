@@ -19,12 +19,6 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" formControlName="telefono" class="form-control" placeholder="Teléfono">
-                            <div class="text-danger" *ngIf="contactoForm.get('telefono')?.hasError('required') && contactoForm.get('telefono')?.touched">
-                                <span>El teléfono es obligatorio</span>
-                            </div>
-                        </div>
-                        <div class="mb-3">
                             <input type="text" formControlName="asunto" class="form-control" placeholder="Asunto">
                             <div class="text-danger" *ngIf="contactoForm.get('asunto')?.hasError('required') && contactoForm.get('asunto')?.touched">
                                 <span>El asunto es obligatorio</span>

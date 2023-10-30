@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent}, 
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'contacto', component: ContactoComponent, canActivate: [AuthGuard]},
-  {path: 'archivo', component: AgregarArchivoComponent, canActivate: [AuthGuard]}
+  {path: 'archivo', component: AgregarArchivoComponent, canActivate: [AuthGuard]},
   {path: 'agregarimagen', component: AgregarimagenComponent, canActivate: [AuthGuard]},
   {path: 'crearcurso', component: CrearCursosComponent, canActivate: [AuthGuard]},
   {path: 'editarCurso/:id', component: CrearCursosComponent},

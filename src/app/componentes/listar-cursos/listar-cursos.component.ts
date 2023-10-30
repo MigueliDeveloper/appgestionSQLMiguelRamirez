@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { GcursoService } from '../../services/gcurso.service';
 import { GCurso } from '../../Models/gcurso';
