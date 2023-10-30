@@ -1,3 +1,10 @@
 tsc  --watch (En la carpeta raiz del backend)
 npm run dev (En la carpeta src del backend)
 Ng serve
+
+https://digital55.com/blog/como-usar-testing-angular-jasmine-karma/
+
+
+jasmine angular
+
+codester.com
