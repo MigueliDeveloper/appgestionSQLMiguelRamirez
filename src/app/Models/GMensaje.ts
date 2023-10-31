@@ -1,5 +1,5 @@
 export class GMensaje{
-	public _id?: string
+	public id?: string
 	public nombre: string
 	public email: string
 	public asunto: string
