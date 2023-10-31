@@ -1,8 +1,35 @@
+/** 
+ * 
+ * TODO:
+ * 
+ * Archivo: user.Auth.ts
+ * 
+ * Propósito: Este archivo contiene los servicios para la autenticación de usuarios.
+ * 
+ * Importaciones:
+ * 
+ * Request: El tipo de Express para objetos de solicitud.
+ * Response: El tipo de Express para objetos de respuesta.
+ * bcrypt: Una biblioteca para el hash y la comparación de contraseñas.
+ * User: El modelo para la tabla user en la base de datos.
+ * jwt: Una biblioteca para generar y verificar tokens JSON Web (JWT)
+ * 
+ */
 import { Request, Response} from 'express';
 import bcrypt from 'bcrypt';
 import { User } from '../models/user';
 import jwt from 'jsonwebtoken';
 
+/** 
+ * newUser: Una función que crea un nuevo usuario en la base de datos.
+ * 
+ * La función newUser() toma los siguientes parámetros:
+ * 
+ * req: El objeto de solicitud de Express.
+ * res: El objeto de respuesta de Express.
+ * 
+ * La función valida que el usuario no exista ya en la base de datos. Si el usuario no existe, la función hashea la contraseña y crea un nuevo usuario en la base de datos. La función luego devuelve una respuesta JSON al cliente con un mensaje de éxito.
+ * */ 
 export const newUser = async (req: Request, res: Response) => {
 
     const { email, password } = req.body;
@@ -36,6 +63,16 @@ export const newUser = async (req: Request, res: Response) => {
     }
 }
 
+/**
+ * loginUser: Una función que autentica a un usuario y genera un JWT.
+ * 
+ * La función loginUser() toma los siguientes parámetros:
+ * 
+ * req: El objeto de solicitud de Express.
+ * res: El objeto de respuesta de Express.
+ * La función valida que el usuario exista en la base de datos. Si el usuario existe, la función compara la contraseña con la contraseña hash en la base de datos. 
+ * Si la contraseña es correcta, la función genera un JWT y lo devuelve al cliente.
+ */
 export const loginUser = async (req: Request, res: Response) => {
 
     const { email, password } = req.body;
