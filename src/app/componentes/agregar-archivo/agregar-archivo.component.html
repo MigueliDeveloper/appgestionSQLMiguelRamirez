@@ -1,17 +1,50 @@
+<!--
+
+  TODO:
+  Una plantilla HTML para un componente Angular llamado agregar-archivo.
+  El componente tiene un encabezado con el texto "Subir imagen", un campo de entrada de archivo y un botón para subir el archivo.
+-->
+
+<!--
+  <app-navbar></app-navbar>
+  Este elemento Angular importa el componente navbar del módulo principal de la aplicación.
+  El componente navbar proporciona una barra de navegación para la aplicación.
+ -->
 <app-navbar></app-navbar>
 <!--- DEFINIER COMPONENTE DE FILE-->
 <div class="wrapper">
   <div class="position-relative">
+
+      <!--
+        Este elemento HTML define un campo de entrada de archivo. El evento change se dispara cuando el usuario selecciona un archivo.
+        El método capturarFile() se llama cuando se produce el evento change.
+       -->
       <h3>Subir imagen</h3>
       <input class="input-file" (change)="capturarFile($event)" type="file">
-        
+
       <div class="wrapper-button" >
+      <!--
+        Este elemento HTML define un botón. El atributo disabled se establece en true cuando el componente está cargando un archivo.
+        El evento click se dispara cuando el usuario hace clic en el botón. El método subirArchivo() se llama cuando se produce el evento click.
+       -->
           <button type="button" class="button" [disabled]="loading" (click)="subirArchivo()">
-              {{(loading) ? 'Cargando.....' : 'Subir Archivo'}}
+            <!--
+              Este componente Angular muestra el texto "Cargando....." cuando el componente está cargando un archivo.
+              Si el componente no está cargando un archivo, muestra el texto "Subir Archivo".
+             -->
+            {{(loading) ? 'Cargando.....' : 'Subir Archivo'}}
           </button>
       </div>
 
+      <!--
+        Futuras mejoras para la aplicación:
+
+        Añade un mensaje de error si el usuario intenta subir un archivo que no es válido.
+        Añade una barra de progreso para mostrar el progreso de la carga del archivo.
+        Añade una función para eliminar el archivo que se ha subido.
+      -->
+
   </div>
- 
+
 </div>
 

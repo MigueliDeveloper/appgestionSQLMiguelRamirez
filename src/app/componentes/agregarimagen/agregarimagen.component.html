@@ -2,12 +2,34 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <!--
+        Este elemento HTML define un campo de entrada de archivo. El atributo name especifica el nombre del archivo que se va a subir.
+        El atributo class especifica la clase CSS que se va a aplicar al campo de entrada de archivo.
+       -->
       <input type="file" name="file" class="form-control">
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
+      <!--
+        Este elemento HTML define un botón. El atributo type especifica el tipo de botón.
+        El atributo class especifica la clase CSS que se va a aplicar al botón.
+        El evento click se dispara cuando el usuario hace clic en el botón.
+        El método uploadFile() se llama cuando se produce el evento click.
+       -->
       <button type="button" class="btn btn-primary" (click)="uploadFile()">Subir archivo</button>
     </div>
   </div>
+
+  <!--
+      Futuros cambios en el HTML:
+
+      Añade el atributo required al elemento input para validar que el usuario debe seleccionar una imagen.
+      Añade el atributo accept al elemento input para validar que el usuario solo puede seleccionar imágenes.
+      Añade el atributo max al elemento input para validar que el tamaño de la imagen no sea demasiado grande.
+      Añade el atributo disabled al elemento button para que el usuario no pueda hacer clic en él hasta que haya seleccionado una imagen.
+      Añade un mensaje de error al elemento input si el usuario no selecciona una imagen o selecciona una imagen que no es válida.
+      Añade una barra de progreso al elemento button para mostrar el progreso de la carga de la imagen.
+      Añade una función al componente para eliminar la imagen que el usuario ha subido.
+   -->
 </div>
