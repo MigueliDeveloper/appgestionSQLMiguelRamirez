@@ -4,16 +4,24 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body text-center">
+                  <!-- Este elemento HTML muestra el título del formulario. El título se define en el componente Angular con el atributo titulo. -->
                     <span class="titulo fs-2 mb-5">{{ titulo | uppercase }}</span>
+                    <!--
+                      Este elemento HTML define el formulario. El atributo novalidate indica que el formulario no se validará automáticamente.
+                      El atributo ngSubmit indica que el método agregarMensaje() se llama cuando el usuario envía el formulario.
+                      El atributo [formGroup] asocia el formulario con el componente Angular.
+                    -->
                     <form class="mb-3 mt-3" novalidate (ngSubmit)="agregarMensaje()" [formGroup]="contactoForm">
                         <div class="mb-3">
                             <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+                            <!-- Este elemento HTML muestra un mensaje de error si el campo de entrada de texto está vacío. -->
                             <div class="text-danger" *ngIf="contactoForm.get('nombre')?.hasError('required') && contactoForm.get('nombre')?.touched">
                                 <span>El nombre es obligatorio</span>
                             </div>
                         </div>
                         <div class="mb-3">
                             <input type="text" formControlName="email" class="form-control" placeholder="Email">
+                            <!-- Este elemento HTML muestra un mensaje de error si el campo de entrada de texto está vacío. -->
                             <div class="text-danger" *ngIf="contactoForm.get('email')?.hasError('required') && contactoForm.get('email')?.touched">
                                 <span>El email es obligatorio</span>
                             </div>
