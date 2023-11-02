@@ -5,9 +5,18 @@
             <div class="card">
                 <div class="card-body text-center">
                     <span class="titulo">{{ titulo | uppercase }}</span>
+                    <!--
+                      Este elemento HTML define el formulario. El atributo [formGroup] asocia el formulario con el componente Angular.
+                       El atributo (ngSubmit) indica que el método agregarCurso() se llama cuando el usuario envía el formulario.
+                      -->
                     <form class="mb-3" [formGroup]="cursoForm" (ngSubmit)="agregarCurso()">
                         <div class="mb-3">
+                            <!--
+                              Este elemento HTML define un campo de entrada de texto para el nombre del curso.
+                              El atributo formControlName asocia el campo de entrada con el control de formulario nombre.
+                            -->
                             <input type="text" formControlName="nombre" class="form-control" placeholder="Curso">
+                            <!-- Este elemento HTML muestra un mensaje de error si el campo de entrada de texto está vacío. -->
                             <div class="text-danger" *ngIf="cursoForm.get('nombre')?.hasError('required') && cursoForm.get('nombre')?.touched">
                                 <span>El nombre es obligatorio</span>
                             </div>
