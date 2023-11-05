@@ -16,6 +16,16 @@ exports.loginUser = exports.newUser = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const user_1 = require("../models/user");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+/**
+ * newUser: Una función que crea un nuevo usuario en la base de datos.
+ *
+ * La función newUser() toma los siguientes parámetros:
+ *
+ * req: El objeto de solicitud de Express.
+ * res: El objeto de respuesta de Express.
+ *
+ * La función valida que el usuario no exista ya en la base de datos. Si el usuario no existe, la función hashea la contraseña y crea un nuevo usuario en la base de datos. La función luego devuelve una respuesta JSON al cliente con un mensaje de éxito.
+ * */
 const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     // Validamos si el usuario ya existe en la base de datos
@@ -44,6 +54,16 @@ const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.newUser = newUser;
+/**
+ * loginUser: Una función que autentica a un usuario y genera un JWT.
+ *
+ * La función loginUser() toma los siguientes parámetros:
+ *
+ * req: El objeto de solicitud de Express.
+ * res: El objeto de respuesta de Express.
+ * La función valida que el usuario exista en la base de datos. Si el usuario existe, la función compara la contraseña con la contraseña hash en la base de datos.
+ * Si la contraseña es correcta, la función genera un JWT y lo devuelve al cliente.
+ */
 const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     // Validamos si el usuario existe en la base de datos

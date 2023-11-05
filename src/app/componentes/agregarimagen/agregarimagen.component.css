@@ -1,12 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .container {
     width: 500px;
     margin: 0 auto;
-  }
-  
+}
+
   .form-control {
     width: 100%;
   }
-  
+
   .btn {
     margin-top: 10px;
   }

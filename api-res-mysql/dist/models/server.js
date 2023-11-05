@@ -12,6 +12,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ *
+ * TODO:
+ *
+ * Importaciones:
+ *
+ * express: El framework Express para crear aplicaciones web.
+ * cors: Un paquete para habilitar el CORS (Cross-Origin Resource Sharing).
+ * routesUser: Un módulo que define las rutas para el manejo de usuarios.
+ * routerFile: Un módulo que define las rutas para el manejo de archivos.
+ * routerCurso: Un módulo que define las rutas para el manejo de cursos.
+ * routerTarea: Un módulo que define las rutas para el manejo de tareas.
+ * routerMensaje: Un módulo que define las rutas para el manejo de mensajes.
+ * routerPost: Un módulo que define las rutas para el manejo de posts.
+ * User: El modelo de datos para los usuarios.
+ * Archivo: El modelo de datos para los archivos.
+ * Curso: El modelo de datos para los cursos.
+ * TareaModel: El modelo de datos para las tareas.
+ * MensajeModel: El modelo de datos para los mensajes.
+ * Post: El modelo de datos para los posts.
+ *
+ */
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const user_1 = __importDefault(require("../routes/user"));
@@ -26,6 +48,23 @@ const CursoModel_1 = require("./CursoModel");
 const TareaModel_1 = __importDefault(require("./TareaModel"));
 const MensajeModel_1 = __importDefault(require("./MensajeModel"));
 const PostModel_1 = __importDefault(require("./PostModel"));
+/**
+ *
+ * TODO:
+ *
+ * Clase Server:
+ *
+ * La clase Server representa el servidor Node.js. Esta clase tiene las siguientes propiedades y métodos:
+ *
+ * app: Una instancia de Express que representa la aplicación web.
+ * port: El puerto en el que se ejecuta el servidor.
+ * constructor(): El constructor de la clase Server. Inicializa las propiedades app y port.
+ * listen(): Inicia el servidor Node.js en el puerto especificado en la propiedad port.
+ * routes(): Define las rutas de la aplicación web.
+ * middlewares(): Define los middlewares de la aplicación web.
+ * dbConnect(): Conecta la aplicación web a la base de datos.
+ *
+ */
 class Server {
     constructor() {
         this.app = (0, express_1.default)();

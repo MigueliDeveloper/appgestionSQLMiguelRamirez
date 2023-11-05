@@ -1,3 +1,10 @@
+*{
+
+  margin: 0;
+  padding: 0;
+
+}
+
 .fa-solid {
     cursor: pointer;
     margin-left: 1em;
@@ -7,7 +14,7 @@
     margin: auto;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
+
 }
 .curso-card{
     background-color: #e7e7e7;

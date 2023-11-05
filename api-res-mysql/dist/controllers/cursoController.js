@@ -16,7 +16,7 @@ const CursoModel_1 = require("../models/CursoModel");
 // Argumentos:
 // Ninguno
 // Valor de retorno:
-// Un array de objetos Curso 
+// Un array de objetos Curso
 const getCursos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const listCursos = yield CursoModel_1.Curso.findAll();
     res.json(listCursos);
@@ -72,6 +72,7 @@ const updateCurso = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     const { body } = req;
     const { id } = req.params;
     try {
+        // TODO:
         // Obtener un curso específico por su ID
         const curso = yield CursoModel_1.Curso.findByPk(id);
         if (curso) {
